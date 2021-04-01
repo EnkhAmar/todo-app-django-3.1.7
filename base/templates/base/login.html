@@ -1,15 +1,29 @@
-<h1 class="mai">Log in</h1>
+{% extends 'base/main.html' %}
+{% block content %}
+<div class="box">
+    <div class="container">
+        <h1 class="mai">Login Form</h1>
 
-<form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Let Me In"/> 
-</form>
+        <!-- <form method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Let Me In" />
+        </form> -->
 
-<p>Dont have an account? <a href="{% url 'register' %}">Register</a></p>
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.username.errors }}
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+            {{ form.username }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.password.errors }}
+            <label for="{{ form.password.id_for_label }}">password:</label>
+            {{ form.password }}
+        </div>
+        <input type="submit" value="Let Me In" />
 
-<style>
-.mai{
-    background-color:red;
-}
-</style>
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
+</div>
+{% endblock content %}
