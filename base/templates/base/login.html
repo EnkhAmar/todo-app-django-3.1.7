@@ -1,7 +1,15 @@
-<h1>Log in</h1>
+<h1 class="mai">Log in</h1>
 
 <form method='POST'>
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Let Me In"/> 
 </form>
+
+<p>Dont have an account? <a href="{% url 'register' %}">Register</a></p>
+
+<style>
+.mai{
+    background-color:red;
+}
+</style>
