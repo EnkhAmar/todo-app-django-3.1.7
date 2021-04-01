@@ -63,8 +63,7 @@ class TaskDetail(LoginRequiredMixin, DetailView):
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
-    fields = ['title', 'description', 'complete']
-    exclude = ('complete',)
+    fields = ['title', 'description',]
     # Redirects to home (tasks)
     success_url = reverse_lazy('tasks')
 
